@@ -1,0 +1,71 @@
+Ex.1======================================================
+fox@fox-Pegas:~/homework$ cat > pets.txt
+Dog,
+cat,
+humster,
+perrot
+pig
+fox@fox-Pegas:~/homework$ nano pets.txt
+fox@fox-Pegas:~/homework$ cat > beastOfBurden.txt
+Horse,
+camle,
+donkey,
+elephant,
+lama
+fox@fox-Pegas:~/homework$ ll
+итого 32
+drwxrwxr-x  2 fox fox  4096 фев  1 22:39 ./
+drwxr-x--- 24 fox fox  4096 фев  1 22:15 ../
+-rw-rw-r--  1 fox fox    37 фев  1 22:41 beastOfBurden.txt
+-rw-r--r--  1 fox fox 12288 окт 20 18:03 .file1.swp
+lrwxrwxrwx  1 fox fox     5 окт 20 18:07 file3 -> file1
+-rw-rw-r--  1 fox fox  1733 окт 20 18:04 newfile2
+-rw-rw-r--  1 fox fox    30 фев  1 22:35 pets.txt
+fox@fox-Pegas:~/homework$ cat pets.txt beastOfBurden.txt > animals.txt
+fox@fox-Pegas:~/homework$ cat animals.txt
+Dog,
+cat,
+humster,
+perrot
+pig
+Horse,
+camle,
+donkey,
+elephant,
+lama
+fox@fox-Pegas:~/homework$ mv animals.txt friendsOfPeople.txt
+fox@fox-Pegas:~/homework$ cat friendsOfPeople.txt
+Dog,
+cat,
+humster,
+perrot
+pig
+Horse,
+camle,
+donkey,
+elephant,
+lama
+Ex.2======================================================
+fox@fox-Pegas:~/homework$ mkdir newdir
+fox@fox-Pegas:~/homework$ pwd
+/home/fox/homework
+fox@fox-Pegas:~/homework$ mv friendsOfPeople.txt /home/fox/homework/newdir
+Ex.3==============================================================
+fox@fox-Pegas:~$ sudo apt install mysql-server -y
+Чтение списков пакетов… Готово
+Ex.4==============================================================
+fox@fox-Pegas:~$ apt download ftp
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 ftp all 20210827-4build1 [4 812 B]
+Получено 4 812 B за 0с (53,2 kB/s) 
+fox@fox-Pegas:~$ ls
+ 1                    ftp_20210827-4build1_all.deb   homework3   newfile4     shared   wc-help.txt                  Документы     Музыка          Шаблоны
+ docker-compose.yml   geek                           homework4   password     snap     zip_3.0-12build2_amd64.deb   Загрузки      Общедоступные
+ Dockerfile           homework                       myfolder    postgresql   test3    Видео                        Изображения  'Рабочий стол'
+fox@fox-Pegas:~$ sudo dpkg -i ftp_20210827-4build1_all.deb
+(Чтение базы данных … на данный момент установлено 192313 файлов и каталогов.)
+Подготовка к распаковке ftp_20210827-4build1_all.deb …
+Распаковывается ftp (20210827-4build1) на замену (20210827-4build1) …
+Настраивается пакет ftp (20210827-4build1) …
+fox@fox-Pegas:~$ sudo dpkg -r ftp
+(Чтение базы данных … на данный момент установлено 192313 файлов и каталогов.)
+Удаляется ftp (20210827-4build1) …
