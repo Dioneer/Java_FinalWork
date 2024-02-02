@@ -14,8 +14,8 @@ public class Registry implements Model {
         return registry;
     }
 
-    public int addAnimal(String name, int age, String commands, TypeOfAnimal type){
-        Animals animal = switch (type) {
+    public int addAnimal(String name, int age, String commands, String type){
+        Animals animal = switch (TypeOfAnimal.valueOf(type)) {
             case CAT -> new Cat(name, age, commands);
             case DOG -> new Dog(name, age, commands);
             case HUMSTER -> new Humster(name, age, commands);
