@@ -2,11 +2,12 @@ package Pegas.model;
 
 public abstract class Animals {
     private static int counter;
+    private final int id;
 
     {
-        ++counter;
+        id=++counter;
     }
-    public static int getCounter() {
-        return counter;
+    public int getId() {
+        return id;
     }
 }
