@@ -163,18 +163,68 @@ SELECT name, age, `commands` FROM `donkey`;
 -- EX.11
 DROP TABLE IF EXISTS youngAnimals;
 create table youngAnimals (
-id BIGINT NOT NULL AUTO_INCREMENT PRIMARY key,
+id serial PRIMARY key,
 name VARCHAR(50),
 birthday DATE
 );
--- UPDATE table1
--- 
---    SET column1 = (SELECT expression1
--- 
---                  FROM table2
--- 
---                 WHERE conditions)
--- 
--- [WHERE conditions];
+INSERT INTO `youngAnimals`(name, birthday)
+SELECT name, age as birthday FROM `cat`
+where timestampdiff(YEAR, age, now()) between 1 and 3;
 
+INSERT INTO `youngAnimals`(name, birthday)
+SELECT name, age as birthday FROM `dog`
+where timestampdiff(YEAR, age, now()) between 1 and 3;
+
+INSERT INTO `youngAnimals`(name, birthday)
+SELECT name, age as birthday FROM `humster`
+where timestampdiff(YEAR, age, now()) between 1 and 3;
+
+INSERT INTO `youngAnimals`(name, birthday)
+SELECT name, age as birthday FROM `horse`
+where timestampdiff(YEAR, age, now()) between 1 and 3;
+
+INSERT INTO `youngAnimals`(name, birthday)
+SELECT name, age as birthday FROM `camel`
+where timestampdiff(YEAR, age, now()) between 1 and 3;
+
+INSERT INTO `youngAnimals`(name, birthday)
+SELECT name, age as birthday FROM donkey 
+where timestampdiff(YEAR, age, now()) between 1 and 3;
+
+DROP TABLE IF EXISTS accuracy_birthday;
+create table accuracy_birthday(
+id serial PRIMARY key,
+name VARCHAR(50),
+month_age int
+);
+
+INSERT INTO `accuracy_birthday`(name, month_age)
+SELECT name,ROUND(TIMESTAMPDIFF(DAY, age, now())*12/365.24) as month_age FROM `cat`;
+
+INSERT INTO `accuracy_birthday`(name, month_age)
+SELECT name, ROUND(TIMESTAMPDIFF(DAY, age, now())*12/365.24) as month_age FROM `dog`;
+
+INSERT INTO `accuracy_birthday`(name, month_age)
+SELECT name,  ROUND(TIMESTAMPDIFF(DAY, age, now())*12/365.24) as month_age FROM `humster`;
+
+INSERT INTO `accuracy_birthday`(name, month_age)
+SELECT name, ROUND(TIMESTAMPDIFF(DAY, age, now())*12/365.24) as month_age FROM `horse`;
+
+INSERT INTO `accuracy_birthday`(name, month_age)
+SELECT name, ROUND(TIMESTAMPDIFF(DAY, age, now())*12/365.24) as month_age FROM `camel`;
+
+INSERT INTO `accuracy_birthday`(name, month_age)
+SELECT name, ROUND(TIMESTAMPDIFF(DAY, age, now())*12/365.24) as month_age FROM donkey;
 -- EX.12
+DROP TABLE IF EXISTS all_animals;
+create table all_animals(
+	id serial PRIMARY KEY,
+    category_id BIGINT UNSIGNED NOT null,
+    animal_id BIGINT UNSIGNED NOT null,
+    `type` ENUM('horse', 'camel', 'donkey', 'dog', 'cat', 'humster')
+);
+
+INSERT INTO `all_animals`(category_id, animal_id, `type`)
+SELECT category_id, animal_id, `type` as month_age FROM pets;
+INSERT INTO `all_animals`(category_id, animal_id, `type`)
+SELECT category_id, animal_id, `type` as month_age FROM packAnimals;
