@@ -1,7 +1,6 @@
 package Pegas.model;
 
 import Pegas.presenter.Model;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -35,7 +34,7 @@ public class Registry implements Model {
             Animals animal = findAnimal(number).get();
             animal.getCommands().addAll(Arrays.asList(str.trim().split(",")));
         } else {
-            System.out.println("Animal wasn't find");
+            System.out.println("Animal wasn't found");
         }
     }
 }

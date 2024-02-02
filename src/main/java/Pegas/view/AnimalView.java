@@ -26,8 +26,10 @@ public class AnimalView implements View {
         }
     }
     public void showRegistrationResult() {
-        if(observer != null) {
+        if(num != 0) {
             System.out.println("Your animal registration number is: " + num);
+        }else{
+            System.out.println("Животных еще нет");
         }
     }
 }
