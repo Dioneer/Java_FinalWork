@@ -7,9 +7,9 @@ import java.util.List;
 public class Camel extends Animals{
     private static int count = 1000;
     private final int number;
-    private String name;
-    private int age;
-    private List<String> commands = new ArrayList<>();
+    private final String name;
+    private final int age;
+
     public Camel(String name, int age, String str) {
         this.name = name;
         this.age = age;
@@ -18,7 +18,7 @@ public class Camel extends Animals{
     }
     public void addCommand(String str){
         String[] arr= str.trim().split(",");
-        commands.addAll(Arrays.asList(arr));
+        getCommands().addAll(Arrays.asList(arr));
     }
     public int getNumber() {
         return number;
@@ -30,16 +30,13 @@ public class Camel extends Animals{
     public int getAge() {
         return age;
     }
-    public List<String> getCommands() {
-        return commands;
-    }
     @Override
     public String toString() {
         return "Camel{" +
                 "number=" + number +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", commands=" + commands +
+                ", commands=" + getCommands() +
                 '}';
     }
 }
