@@ -1,26 +1,33 @@
 package Pegas.view;
 
-import Pegas.model.Animals;
 import Pegas.presenter.Observer;
 import Pegas.presenter.View;
 
-import java.util.Map;
-
 public class AnimalView implements View {
+
     private Observer observer;
-    public AnimalView(Observer observer) {
-        this.observer = observer;
-    }
     public void setObserver(Observer observer) {
         this.observer = observer;
     }
-    public void showAnimals(Map<Integer, Animals> arr) {
-        arr.entrySet().forEach(System.out::println);
+    private int num;
+    public void showAnimals() {
+        if(observer != null) {
+            observer.loadList().entrySet().forEach(System.out::println);
+        }
     }
-    public void addAnimalToRegistry(String name, int age, String commands, String type) {
-
+    public void addAnimal(String name, int age, String commands, String type) {
+        if(observer != null) {
+            num = observer.addAnimalToRegistry(name, age, commands, type);
+        }
     }
-    public void addNewCommandToAnimal(int number, String str){
-
+    public void addNewCommand(int number, String str){
+        if(observer != null) {
+            observer.addNewCommandToAnimal(number,str);
+        }
+    }
+    public void showRegistrationResult() {
+        if(observer != null) {
+            System.out.println("Your animal registration number is: " + num);
+        }
     }
 }

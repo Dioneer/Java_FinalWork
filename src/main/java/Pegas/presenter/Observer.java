@@ -1,7 +1,12 @@
 package Pegas.presenter;
 
+import Pegas.model.Animals;
+
+import java.util.Map;
+
 public interface Observer {
-    void addAnimalToRegistry(String name, int age, String commands, String type);
+    int addAnimalToRegistry(String name, int age, String commands, String type);
     void addNewCommandToAnimal(int number, String str);
+    Map<Integer, Animals> loadList();
 
 }

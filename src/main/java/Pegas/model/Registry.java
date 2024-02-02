@@ -1,6 +1,7 @@
 package Pegas.model;
 
 import Pegas.presenter.Model;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 import java.util.HashMap;
